@@ -75,9 +75,10 @@ namespace UI.CalculatorOutput
                 && "+-/*".Contains(_displayString[^1])) _displayString.Remove(_displayString.Length - 1, 1);
 
             //RESTRICT TWO CONSECUTIVE .
+
             if (_displayString.Length > 0
-                && ".".Contains(p_term)
-                && ".".Contains(_displayString[^1])) _displayString.Remove(_displayString.Length - 1, 1);
+                && p_term == "."
+                && _displayString[^1] == '.') _displayString.Remove(_displayString.Length - 1, 1);
 
             _displayString.Append(p_term);
             RenderToDisplay(_displayString.ToString());
