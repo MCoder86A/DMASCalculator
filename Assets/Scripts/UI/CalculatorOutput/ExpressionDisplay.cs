@@ -71,8 +71,13 @@ namespace UI.CalculatorOutput
 
             //RESTRICT TWO CONSECUTIVE OPERATOR
             if (_displayString.Length > 0
-                && "+-/*.".Contains(p_term)
-                && "+-/*.".Contains(_displayString[^1])) _displayString.Remove(_displayString.Length - 1, 1);
+                && "+-/*".Contains(p_term)
+                && "+-/*".Contains(_displayString[^1])) _displayString.Remove(_displayString.Length - 1, 1);
+
+            //RESTRICT TWO CONSECUTIVE .
+            if (_displayString.Length > 0
+                && ".".Contains(p_term)
+                && ".".Contains(_displayString[^1])) _displayString.Remove(_displayString.Length - 1, 1);
 
             _displayString.Append(p_term);
             RenderToDisplay(_displayString.ToString());
