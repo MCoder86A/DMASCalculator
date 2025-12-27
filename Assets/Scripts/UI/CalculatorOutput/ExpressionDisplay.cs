@@ -67,12 +67,12 @@ namespace UI.CalculatorOutput
             }
 
             //ADD 0 IF INSERTED OPERATOR IN EMPTY EXPRESSION
-            if (_displayString.Length == 0 && "+-/*".Contains(p_term)) _displayString.Append('0');
+            if (_displayString.Length == 0 && "+-/*.".Contains(p_term)) _displayString.Append('0');
 
             //RESTRICT TWO CONSECUTIVE OPERATOR
             if (_displayString.Length > 0
-                && "+-/*".Contains(p_term)
-                && "+-/*".Contains(_displayString[^1])) _displayString.Remove(_displayString.Length - 1, 1);
+                && "+-/*.".Contains(p_term)
+                && "+-/*.".Contains(_displayString[^1])) _displayString.Remove(_displayString.Length - 1, 1);
 
             _displayString.Append(p_term);
             RenderToDisplay(_displayString.ToString());
